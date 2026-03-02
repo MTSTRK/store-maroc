@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+  ============================================================
+   بوتيك المغرب — صفحة المنتج
+  ============================================================
+   الصور المطلوب استبدالها:
+     /images/logo.png       ← شعار العلامة التجارية
+     /images/product-1.jpg  ← صورة المنتج الرئيسية
+     /images/product-2.jpg  ← صورة المنتج الزاوية 2
+     /images/product-3.jpg  ← صورة المنتج الزاوية 3
+
+   الإعدادات:
+     /js/config.js          ← واتساب، تليجرام، جوجل شيتس
+  ============================================================
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شاحن متنقل 20000 مللي أمبير — بوتيك المغرب</title>
+  <meta name="description" content="اطلب شاحنك المتنقل 20000 مللي أمبير من بوتيك المغرب. شحن سريع، تصميم أنيق، توصيل لجميع أنحاء المغرب.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================== الهيدر ======================== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo-light.png" alt="بوتيك المغرب">
+        <span class="logo-text">بوتيك <span>المغرب</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">الرئيسية</a>
+        <a href="product.html" class="active">المنتج</a>
+        <a href="contact.html">اتصل بنا</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="فتح القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================== قسم المنتج ======================== -->
+  <section class="product-page section">
+    <div class="container">
+      <div class="product-layout">
+
+        <!-- ---- المعرض ---- -->
+        <div class="gallery animate-slide-right">
+          <div class="gallery-main">
+            <img src="images/product-1.jpg" alt="شاحن متنقل 20000 مللي أمبير" id="mainImage">
+          </div>
+          <div class="gallery-thumbs">
+            <img src="images/product-1.jpg" alt="عرض 1" class="active" onclick="changeImage(this)">
+            <img src="images/product-2.jpg" alt="عرض 2" onclick="changeImage(this)">
+            <img src="images/product-3.jpg" alt="عرض 3" onclick="changeImage(this)">
+          </div>
+        </div>
+
+        <!-- ---- التفاصيل + نموذج الطلب ---- -->
+        <div class="product-details animate-slide-left">
+          <h1>شاحن متنقل 20000 مللي أمبير</h1>
+          <div class="product-price">
+            199 درهم
+            <span class="old-price">299 درهم</span>
+          </div>
+
+          <p class="product-desc">
+            ابقَ مشحوناً طوال اليوم مع شاحنا المتنقل الرفيع بسعة 20000 مللي أمبير. مصمم للمحترفين والمسافرين، يدعم الشحن السريع حتى 22.5 واط ويشحن معظم الهواتف الذكية 4-5 مرات بشحنة واحدة. متوافق مع آيفون، سامسونغ، هواوي، وجميع أجهزة USB-C.
+          </p>
+
+          <div class="product-features">
+            <h3>المميزات</h3>
+            <ul>
+              <li>بطارية بسعة عالية 20000 مللي أمبير</li>
+              <li>شحن سريع بقوة 22.5 واط</li>
+              <li>منفذ USB-A مزدوج + USB-C</li>
+              <li>شاشة LED رقمية لمستوى البطارية</li>
+              <li>تصميم مدمج وخفيف الوزن (380 جرام)</li>
+              <li>حماية من الشحن الزائد والدارة القصيرة</li>
+            </ul>
+          </div>
+
+          <!-- الكمية -->
+          <div class="qty-selector">
+            <label>الكمية:</label>
+            <button class="qty-btn" onclick="changeQty(-1)">−</button>
+            <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="10" readonly>
+            <button class="qty-btn" onclick="changeQty(1)">+</button>
+          </div>
+
+          <!-- نموذج الطلب -->
+          <div class="order-form">
+            <h3>📦 قدّم طلبك</h3>
+            <form id="orderForm" onsubmit="return handleOrderSubmit(event)">
+              <div class="form-group">
+                <label for="customerName">الاسم الكامل *</label>
+                <input type="text" id="customerName" name="name" placeholder="أدخل اسمك الكامل" required>
+              </div>
+              <div class="form-group">
+                <label for="customerPhone">رقم الهاتف *</label>
+                <input type="tel" id="customerPhone" name="phone" placeholder="06XXXXXXXX" required>
+              </div>
+              <div class="form-group">
+                <label for="customerCity">المدينة *</label>
+                <input type="text" id="customerCity" name="city" placeholder="مدينتك" required>
+              </div>
+              <div class="form-group">
+                <label for="customerAddress">عنوان التوصيل *</label>
+                <input type="text" id="customerAddress" name="address" placeholder="الشارع، الحي، إلخ." required>
+              </div>
+              <div class="form-group">
+                <label for="customerNotes">ملاحظات (اختياري)</label>
+                <textarea id="customerNotes" name="notes" placeholder="أي تعليمات خاصة..."></textarea>
+              </div>
+
+              <div class="form-buttons">
+                <button type="submit" class="btn btn-primary btn-block" id="submitOrderBtn">
+                  📦 إرسال الطلب
+                </button>
+                <button type="button" class="btn btn-whatsapp btn-block" onclick="orderViaWhatsApp()">
+                  💬 اطلب عبر واتساب
+                </button>
+              </div>
+
+              <div class="form-message" id="formMessage"></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== نافذة النجاح ======================== -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeSuccessModal()" aria-label="إغلاق">&times;</button>
+      <div class="modal-success active">
+        <div class="success-icon">
+          <svg viewBox="0 0 52 52" class="success-checkmark">
+            <circle cx="26" cy="26" r="25" fill="none" stroke="currentColor" stroke-width="2" class="success-circle"/>
+            <path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="M14 27l7 7 16-16" class="success-check"/>
+          </svg>
+        </div>
+        <h3 class="success-title">تم الطلب بنجاح!</h3>
+        <p class="success-text">شكراً لك على ثقتك بنا. سنتواصل معك قريباً لتأكيد طلبك وترتيب التوصيل.</p>
+        <button class="btn btn-primary" onclick="closeSuccessModal()">حسناً</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================== الفوتر ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo-light.png" alt="بوتيك المغرب">
+            <span class="logo-text">بوتيك <span>المغرب</span></span>
+          </a>
+          <p>مصدرك الموثوق للمنتجات الفاخرة في المغرب. جودة مضمونة وتوصيل سريع لجميع المدن.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <div class="footer-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="product.html">المنتج</a>
+            <a href="contact.html">اتصل بنا</a>
+          </div>
+        </div>
+        <div>
+          <h4>تابعنا</h4>
+          <div class="social-links">
+            <a href="#" title="انستغرام">IG</a>
+            <a href="#" title="فيسبوك">FB</a>
+            <a href="#" title="تيك توك">TK</a>
+            <a href="#" title="يوتيوب">YT</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 بوتيك المغرب. جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="#" class="floating-wa" id="floatingWA" aria-label="واتساب">💬</a>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

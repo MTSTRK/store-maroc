@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <!--
+  ============================================================
+   بوتيك المغرب — صفحة الاتصال
+  ============================================================
+   الإعدادات:
+     /js/config.js ← رقم واتساب، تفاصيل بوت تليجرام
+  ============================================================
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اتصل بنا — بوتيك المغرب</title>
+  <meta name="description" content="تواصل مع بوتيك المغرب. تواصل معنا عبر واتساب أو تليجرام أو نموذج الاتصال.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ======================== الهيدر ======================== -->
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="images/logo-light.png" alt="بوتيك المغرب">
+        <span class="logo-text">بوتيك <span>المغرب</span></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">الرئيسية</a>
+        <a href="product.html">المنتج</a>
+        <a href="contact.html" class="active">اتصل بنا</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="فتح القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ======================== عنوان الصفحة ======================== -->
+  <div class="page-header">
+    <div class="container">
+      <h1>تواصل <span class="accent">معنا</span></h1>
+      <p>يسعدنا سماع رأيك. تواصل معنا في أي وقت!</p>
+    </div>
+  </div>
+
+  <!-- ======================== قسم الاتصال ======================== -->
+  <section class="contact-page section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- ---- معلومات الاتصال ---- -->
+        <div class="contact-info-card animate-slide-right">
+          <h2>معلومات <span class="accent">الاتصال</span></h2>
+          <p>اختر طريقتك المفضلة للتواصل معنا. نرد عادةً خلال ساعة واحدة خلال ساعات العمل.</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>العنوان</h4>
+              <p>الدار البيضاء، المغرب</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <h4>الهاتف</h4>
+              <p id="contactPhone">+212 XX XXX XXXX</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <h4>البريد الإلكتروني</h4>
+              <p>contact@boutiquemaroc.ma</p>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4>ساعات العمل</h4>
+              <p>الإثنين – السبت: 9:00 صباحاً – 8:00 مساءً</p>
+            </div>
+          </div>
+
+          <div class="contact-buttons">
+            <a href="#" class="btn btn-whatsapp" id="contactWhatsApp">
+              💬 تواصل عبر واتساب
+            </a>
+            <a href="#" class="btn btn-telegram" id="contactTelegram">
+              ✈️ راسلنا على تليجرام
+            </a>
+          </div>
+        </div>
+
+        <!-- ---- نموذج الاتصال ---- -->
+        <div class="contact-form-card animate-slide-left">
+          <h2>أرسل لنا <span class="accent">رسالة</span></h2>
+          <p>املأ النموذج أدناه وسنعود إليك في أقرب وقت.</p>
+
+          <form id="contactForm" onsubmit="return handleContactSubmit(event)">
+            <div class="form-group">
+              <label for="contactName">اسمك *</label>
+              <input type="text" id="contactName" name="name" placeholder="أدخل اسمك الكامل" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">البريد الإلكتروني (اختياري)</label>
+              <input type="email" id="contactEmail" name="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="contactSubject">الموضوع *</label>
+              <input type="text" id="contactSubject" name="subject" placeholder="كيف يمكننا مساعدتك؟" required>
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">الرسالة *</label>
+              <textarea id="contactMessage" name="message" placeholder="اكتب رسالتك هنا..." required></textarea>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary btn-block" id="submitContactBtn">
+                ✉️ إرسال الرسالة
+              </button>
+            </div>
+
+            <div class="form-message" id="contactFormMessage"></div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== الفوتر ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="images/logo-light.png" alt="بوتيك المغرب">
+            <span class="logo-text">بوتيك <span>المغرب</span></span>
+          </a>
+          <p>مصدرك الموثوق للمنتجات الفاخرة في المغرب. جودة مضمونة وتوصيل سريع لجميع المدن.</p>
+        </div>
+        <div>
+          <h4>روابط سريعة</h4>
+          <div class="footer-links">
+            <a href="index.html">الرئيسية</a>
+            <a href="product.html">المنتج</a>
+            <a href="contact.html">اتصل بنا</a>
+          </div>
+        </div>
+        <div>
+          <h4>تابعنا</h4>
+          <div class="social-links">
+            <a href="#" title="انستغرام">IG</a>
+            <a href="#" title="فيسبوك">FB</a>
+            <a href="#" title="تيك توك">TK</a>
+            <a href="#" title="يوتيوب">YT</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 بوتيك المغرب. جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <a href="#" class="floating-wa" id="floatingWA" aria-label="واتساب">💬</a>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
